@@ -12,16 +12,19 @@ public class Player extends BorderPane {
 	MediaPlayer player;
 	MediaView view;
 	Pane mPane;
+	MediaBar bar;
 	
 	public Player(String file) {
 		media = new Media(file);
 		player = new MediaPlayer(media);
 		view = new MediaView(player);
 		mPane = new Pane();
+		bar = new MediaBar(player);
 		
 		mPane.getChildren().add(view);
 		
 		setCenter(mPane);
+		setBottom(bar);
 		
 		player.play();
 	}
