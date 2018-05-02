@@ -42,9 +42,7 @@ public class MediaBar extends HBox {
 		getChildren().add(lbVolume);
 		getChildren().add(volume);
 		
-		playButton.setOnAction(new EventHandler<ActionEvent>() {
-
-			public void handle(ActionEvent event) {
+		playButton.setOnAction(event -> {
 				Status status = player.getStatus();
 				
 				if (status == Status.PLAYING) {
@@ -53,7 +51,6 @@ public class MediaBar extends HBox {
 						player.play();
 					}
 				}
-			}
-		});
+			});
 	}
 }
