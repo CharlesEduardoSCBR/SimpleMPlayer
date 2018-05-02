@@ -1,5 +1,7 @@
 package mplayer.view;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -8,6 +10,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 
 public class MediaBar extends HBox {
 
@@ -39,5 +42,18 @@ public class MediaBar extends HBox {
 		getChildren().add(lbVolume);
 		getChildren().add(volume);
 		
+		playButton.setOnAction(new EventHandler<ActionEvent>() {
+
+			public void handle(ActionEvent event) {
+				Status status = player.getStatus();
+				
+				if (status == Status.PLAYING) {
+					if (player.getCurrentTime().greaterThanOrEqualTo(player.getTotalDuration())) {
+						player.seek(player.getStartTime());
+						player.play();
+					}
+				}
+			}
+		});
 	}
 }
