@@ -25,6 +25,7 @@ public class Player extends BorderPane {
 		
 		setCenter(mPane);
 		setBottom(bar);
+		setStyle("-fx-background-color: #bfc2c7");
 		
 		player.play();
 	}
