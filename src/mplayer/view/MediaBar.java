@@ -67,6 +67,12 @@ public class MediaBar extends HBox {
 				player.seek(player.getMedia().getDuration().multiply(time.getValue() / 100));
 			}
 		});
+		
+		volume.valueProperty().addListener(evt -> {
+			if (volume.isPressed()) {
+				player.setVolume(volume.getValue()/100);;
+			}
+		});
 	}
 
 	protected void upatesValue() {
