@@ -61,6 +61,12 @@ public class MediaBar extends HBox {
 		player.currentTimeProperty().addListener(event -> {
 			upatesValue();
 		});
+
+		time.valueProperty().addListener(evt -> {
+			if (time.isPressed()) {
+				player.seek(player.getMedia().getDuration().multiply(time.getValue() / 100));
+			}
+		});
 	}
 
 	protected void upatesValue() {
