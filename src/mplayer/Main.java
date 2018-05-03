@@ -37,7 +37,9 @@ public class Main extends Application {
 			
 			if (fileO != null) {
 				try {
+					player.setStopPlayer();
 					player = new Player(fileO.toURI().toURL().toExternalForm());
+					player.setTop(menu);
 					scene = new Scene(player, 720, 510, Color.BLACK);
 					primaryStage.setScene(scene);
 					

@@ -29,4 +29,8 @@ public class Player extends BorderPane {
 		
 		player.play();
 	}
+	
+	public void setStopPlayer() {
+		player.stop();
+	}
 }
