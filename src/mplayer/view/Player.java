@@ -4,6 +4,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;
 
 public class Player extends BorderPane {
@@ -31,6 +32,9 @@ public class Player extends BorderPane {
 	}
 	
 	public void setStopPlayer() {
-		player.stop();
+		Status status = player.getStatus();
+		if (status.PLAYING != null) {
+			player.stop();
+		}
 	}
 }
